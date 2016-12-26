@@ -2,8 +2,15 @@ from skimage import feature
 import numpy as np
 
 class TextureBackground:
+    """ A python implementation of a texture-based method for Modelling the Background.
+    """
     def __init__(self, P, R, K=3, Rregion=9):
         """
+        The Background models relies on adaptive LBP(local binary pattern) histograms.
+        Hence, the paramters of the LBP operator must be provided.
+        Additionally, proximity and background threshold are pre-setted. 
+        K-means (for learning background histograms and weights) learning rates are predefined as well.
+        
         Args:
             P(int): LBP parameter, Number of equaly spaced pixel on a circle of radius R around a given pixel
             R(int): LBP parameter, Radius R of a circle centered on a pixel

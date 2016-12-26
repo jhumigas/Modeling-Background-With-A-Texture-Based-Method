@@ -2,7 +2,7 @@
 
 This work is part of my assignment for Image Processing course.
 
-A Texture-based method for modelling and the background and detecting moving objects is implemented here in python (pylbp), following Heikkila et Al. work about modelling background and detecting moving objects[1].
+A Texture-based method for modelling and the background and detecting moving objects is implemented here in python (pylbp), following Heikkila et Al. work about modelling background and detecting moving objects.
 A matlab implementation is also provided but the processing runs very slow.
 
 We used several image datasets for testing purpose.
@@ -47,9 +47,12 @@ pip install -r req.txt
 
 ## Image Dataset
 
+*Image Datasets will be provided soon for testing purposes*
+
 * Sequence 1 taken form [PETS](http://ftp.pets.rdg.ac.uk/pub/PETS2001/) database
 * Sequence 2, 3 taken from [ChangeDetection.Net](http://wordpress-jodoin.dmi.usherb.ca/static/dataset/baseline/), a University of Sherbrooke dataset
 
 ## Sources
 
 Heikkila, M., & Pietikainen, M. (2006). [A texture-based method for modeling the background and detecting moving objects](http://aiweb.techfak.uni-bielefeld.de/files/BackgroundSubstraction.pdf). IEEE transactions on pattern analysis and machine intelligence, 28(4), 657-662.
+[Local Binary Patterns with Python & OpenCV](http://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/)

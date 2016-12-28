@@ -2,9 +2,9 @@ from skimage import feature
 import numpy as np
 
 class TextureBackground:
-    """ A python implementation of a texture-based method for Modelling the Background.
+    """ A python implementation of a texture-based method for modelling the background.
     """
-    def __init__(self, P, R, K=3, Rregion=9):
+    def __init__(self, P, R, K=3, Rregion=9, Tp=0.7, Tb=1.2):
         """
         The Background models relies on adaptive LBP(local binary pattern) histograms.
         Hence, the paramters of the LBP operator must be provided.
@@ -16,6 +16,8 @@ class TextureBackground:
             R(int): LBP parameter, Radius R of a circle centered on a pixel
             Rregion(int): Radius of a circle around a pixel on which to compute a LBP histogram
             K(int): Number of model histograms
+            Tp(float): Proximity Threshold
+            Tb(float): Background Threshold
         """
         self.P = P
         self.R = R
@@ -24,8 +26,9 @@ class TextureBackground:
         self.kmodels = np.random.rand(self.K, 2**self.P)
         # self.kweights = np.zeros(self.K)
         self.kweights = np.random.random(self.K)
-        self.Tp = 0.65 # Proximity Threshold
-        self.Tb = 0.4  # Background Threshold
+        self.kweights = self.kweights/sum(self.kweights)
+        self.Tp = Tp # Proximity Threshold
+        self.Tb = Tb  # Background Threshold
         self.alpha_b = 0.01 # Background model learning rate
         self.alpha_w = 0.01 # Model weights learning rate
     
@@ -109,8 +112,10 @@ class TextureBackground:
         else:
             # Select the kmodel with the highest proximity value
             # Perform kmeans
-            self.kmodels[proximities == max(proximities)] = self.alpha_b*h + (1 - self.alpha_b)* self.kmodels[proximities == max(proximities)][0]
-            self.kweights = (1 - self.alpha_w)*self.kweights + self.alpha_w*(proximities == max(proximities)).astype(int)
+            self.kmodels[proximities.index(max(proximities))] = self.alpha_b*h + (1 - self.alpha_b)* self.kmodels[proximities.index(max(proximities))]
+            M = np.zeros(self.K)
+            M[proximities.index(max(proximities))] = 1
+            self.kweights = (1 - self.alpha_w)*self.kweights + self.alpha_w*M
 
         return (self.kmodels, self.kweights)
 
@@ -155,20 +160,20 @@ class TextureBackground:
             b = k
             if sum(weights_sorted[0:k]) > self.Tb:
                 break
-
+        
         for (x,y), value in np.ndenumerate(lbps):
             if self.Rregion-1 < x <= m-self.Rregion and self.Rregion-1 < y <= n-self.Rregion:
                 (h,_) = np.histogram(self.cmask(x, y, self.Rregion, lbps),
-                    bins=np.arange(0, self.P + 3))
+                    bins=np.arange(0, 2**self.P+1))
                 h = h.astype("float")
                 h /= (h.sum()+eps)
 
                 # First stage of processing 
                 # Comparison to the current k-model histograms 
-                proximities = [self.proximity(h, kmodel) for kmodel in self.kmodels[idx_sorted[0:b]]]
+                proximities = np.array([self.proximity(h, kmodel) for kmodel in self.kmodels[idx_sorted[0:b]]])
 
                 # Labelling pixel
-                if min(proximities) <= self.Tp:
+                if max(proximities >= self.Tp):
                     imagelabelled[x, y] = 0
 
         return imagelabelled

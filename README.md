@@ -28,6 +28,18 @@ To learn the background model, k-means algorithm is used in the following step:
 
 Foreground detection is performed before updating the background model. A pixel histogram is simply compared to the current background histogram, and if the resulting proximity measure is higher than a predefined threshold, the pixel is labelled as belonging to the background.
 
+Example : 
+
+Here, we consider a scene where a car is moving in a street.
+
+![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/input.gif)
+*Original*
+![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/plbp_R9.gif)
+*Processed*
+
+The car indeed belong to the foreground detected, as it slips through the blacked areas.
+
+Here we tested on sequence of images with normal background, where a car is moving in a street.
 ## Requirements
 
 Notable required packages : 

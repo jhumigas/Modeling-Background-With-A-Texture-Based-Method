@@ -11,7 +11,7 @@ args = vars(ap.parse_args())
 
 # initialize the local binary patterns descriptor along with
 # the data and label lists
-desc = TextureBackground(P=6, R=2, K=12, Rregion=9, Tp=0.6, Tb=1.7)
+desc = TextureBackground(P=6, R=2, K=5, Rregion=9, Tp=0.4, Tb=0.7)
 
 # loop over the training images
 for imagePath in paths.list_images(args["training"]):

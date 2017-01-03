@@ -32,8 +32,11 @@ Example :
 
 Here, we consider a scene where a car is moving in a street.
 Right : Original images  | Left : Processed for foreground detection
+
+
 ![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/input.gif)
 ![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/plbp_R9.gif)
+
 
 The car indeed belong to the foreground detected, as it *slips* through the blacked areas.
 

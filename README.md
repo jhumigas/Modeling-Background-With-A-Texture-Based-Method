@@ -31,13 +31,11 @@ Foreground detection is performed before updating the background model. A pixel 
 Example : 
 
 Here, we consider a scene where a car is moving in a street.
-
+Right : Original images  | Left : Processed for foreground detection
 ![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/input.gif)
-*Original*
 ![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/plbp_R9.gif)
-*Processed*
 
-The car indeed belong to the foreground detected, as it slips through the blacked areas.
+The car indeed belong to the foreground detected, as it *slips* through the blacked areas.
 
 Here we tested on sequence of images with normal background, where a car is moving in a street.
 ## Requirements

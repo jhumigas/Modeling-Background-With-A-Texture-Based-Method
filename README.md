@@ -33,10 +33,11 @@ Foreground detection is performed before updating the background model. A pixel 
 Example : 
 
 Here, we consider a scene where a car is moving in a street.
+We used the following values for the parameters : P=6, R=2, K=3, Rregion=9, Tp=0.55, Tb=0.7
 Right : Original images  | Left : Processed for foreground detection
 
 
-![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/input_resized.gif)
+![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/input.gif)
 ![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/plbp_R9.gif)
 
 

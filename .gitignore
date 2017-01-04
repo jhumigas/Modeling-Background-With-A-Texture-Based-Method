@@ -110,8 +110,7 @@ ENV/
 # Image Dataset
 ################
 
-Sequence1/result/*
-Sequence1/result1/*
+Sequence1/result*
 Sequence2/*
 Sequence3/*
 Sequence4/*

@@ -111,7 +111,6 @@ ENV/
 ################
 
 Sequence1/result*
-Sequence2/*
-Sequence3/*
-Sequence4/*
-Sequence5/*
+Sequence2/
+Sequence3/
+Sequence4/

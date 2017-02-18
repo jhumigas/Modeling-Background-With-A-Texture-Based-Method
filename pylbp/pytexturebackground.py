@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from skimage import feature
 import numpy as np
 
@@ -69,7 +72,7 @@ class TextureBackground:
         """
         Compute the proximity measure between two histograms.
         The histograms intersection was chosen as the core measure,
-        this measure indeed calculate the common part of two histograms.
+        it simply computes the common part of two histograms.
 
         Args:
             a(array): Histogram
@@ -121,7 +124,7 @@ class TextureBackground:
 
     def background_modelling(self, lbps):
         """
-        Learn the kmodel over a whold preprocessed image
+        Learn the kmodel over a whole preprocessed image
 
         Args:
             lbps(array): Image processed with a LBP operator
@@ -136,14 +139,14 @@ class TextureBackground:
     
     def foreground_detection(self, lbps, gray, eps=1e-7):
         """
-        Labels pixels as belonging to the background or no.
+        Label pixels as belonging to the background or no.
 
         Args:
             lbps(array): Image processed with the LBP operator
             eps(float): Constant to avoid division by zero 
         
         Returns:
-            Labelled image i.e in which the background region are black
+            Labelled image i.e whose background pixels are black
         """
         imagelabelled = gray
         m,n = lbps.shape

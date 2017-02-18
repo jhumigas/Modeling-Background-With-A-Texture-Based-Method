@@ -10,7 +10,7 @@ We used several image datasets for testing purpose.
 Once you make sure all the required packages are available, you can just run the python code:
 
 ```
-# in pylbp directory run recognize.py with the path to the image sequence
+# in pylbp directory run recognize.py with the path to the image sequence to process
 python recognize.py -t ../Sequence2/input/
 ```
 
@@ -30,10 +30,11 @@ TL;DR, here are the steps:
 
 Foreground detection is performed before updating the background model. A pixel histogram is simply compared to the current background histogram, and if the resulting proximity measure is higher than a predefined threshold, the pixel is labelled as belonging to the background.
 
-Example : 
+## Example
 
-Here, we consider a scene where a car is moving in a street.
+Here we tested on sequence of images with normal background, we consider a scene where a car is moving in a street.
 We used the following values for the parameters : P=6, R=2, K=3, Rregion=9, Tp=0.55, Tb=0.7
+
 Right : Original images  | Left : Processed for foreground detection
 
 
@@ -41,9 +42,9 @@ Right : Original images  | Left : Processed for foreground detection
 ![alt Original](https://raw.githubusercontent.com/jhumigas/Modeling-Background-With-A-Texture-Based-Method/master/Sequence1/animated/plbp_R9.gif)
 
 
-The car indeed belong to the foreground detected, as it *slips* through the blacked areas.
+The car indeed belong to the foreground detected, we can see it *slipping* through the blacked areas, that represent the foreground.
 
-Here we tested on sequence of images with normal background, where a car is moving in a street.
+
 
 ## Requirements
 

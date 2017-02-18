@@ -74,3 +74,4 @@ pip install -r req.txt
 
 * Heikkila, M., & Pietikainen, M. (2006). [A texture-based method for modeling the background and detecting moving objects](http://aiweb.techfak.uni-bielefeld.de/files/BackgroundSubstraction.pdf). IEEE transactions on pattern analysis and machine intelligence, 28(4), 657-662.
 * [Local Binary Patterns with Python & OpenCV](http://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/)
+* [Faces and Local Binary Pattern - Computephile](https://youtu.be/wpAwdsubl1w)

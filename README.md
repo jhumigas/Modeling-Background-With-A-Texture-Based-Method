@@ -16,17 +16,17 @@ python recognize.py -t ../Sequence2/input/
 
 ##  Brief Presentation
 
-The key idea is to model each pixel by a group of local adaptive binary pattern histograms that are calculated over a circular region around a pixel. 
-The local binary pattern operator labels a given pixel by thresholding each pixel of the neighborhood with the value of the considered pixel. The result is considered as a binary number, hence the denomination of binary pattern.
-The first step is Background modeling. The objective is to maintain a certain statistical representation of the scene to study. Here we use texture representation provided by the local binary operator.
-The background model consists of a vector of k lbp histograms: these histograms are updated each time a region around a pixel is processed by the lbp operator. Furthermore each model is associated with a weight between 0 and 1 that denotes the importance of a model.
-To learn the background model, we perform clustering on the LBP representation of the image with k-means algorithm.
-
 TL;DR, here are the steps:
 
 * Compute a pixel histogram
 * Comparison of current pixel histogram to the k-model histograms
 * Learn the background model (k-means algorithm on the model histograms and their weights)
+
+The key idea is to model each pixel by a group of local adaptive binary pattern histograms that are calculated over a circular region around a pixel. 
+The local binary pattern operator labels a given pixel by thresholding each pixel of the neighborhood with the value of the considered pixel. The result is considered as a binary number, hence the denomination of binary pattern.
+The first step is Background modeling. The objective is to maintain a certain statistical representation of the scene to study. Here we use texture representation provided by the local binary operator.
+The background model consists of a vector of k lbp histograms: these histograms are updated each time a region around a pixel is processed by the lbp operator. Furthermore each model is associated with a weight between 0 and 1 that denotes the importance of a model.
+To learn the background model, we perform clustering on the LBP representation of the image with k-means algorithm.
 
 Foreground detection is performed before updating the background model. A pixel histogram is simply compared to the current background histogram, and if the resulting proximity measure is higher than a predefined threshold, the pixel is labelled as belonging to the background.
 
